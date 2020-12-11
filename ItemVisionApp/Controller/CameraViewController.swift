@@ -9,7 +9,7 @@ import UIKit
 
 class CameraViewController: UIViewController {
 
-    @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var cameraView: RoundedShadowView!
     @IBOutlet weak var captureImageView: UIImageView!
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var identificationLabel: UILabel!
