@@ -49,7 +49,7 @@
                                             <constraint firstItem="dgw-ch-al6" firstAttribute="leading" secondItem="s45-aa-5Ke" secondAttribute="leading" constant="10" id="zAp-6f-ShL"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYj-YK-yBe">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYj-YK-yBe" customClass="RoundedShadowButton" customModule="ItemVisionApp" customModuleProvider="target">
                                         <rect key="frame" x="20" y="830" width="150" height="36"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -60,7 +60,7 @@
                                             <color key="titleColor" systemColor="systemGreenColor"/>
                                         </state>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vNr-32-uhE">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vNr-32-uhE" customClass="RoundedShadowImageView" customModule="ItemVisionApp" customModuleProvider="target">
                                         <rect key="frame" x="244" y="716" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="kIj-f0-hMI"/>
@@ -95,6 +95,7 @@
                         <outlet property="confidenceLabel" destination="FXW-gM-dV1" id="Pa0-eJ-kij"/>
                         <outlet property="flashButton" destination="eYj-YK-yBe" id="gUN-bW-Otf"/>
                         <outlet property="identificationLabel" destination="FXW-gM-dV1" id="Z57-0n-oc6"/>
+                        <outlet property="roundedLabelView" destination="8bC-Xf-vdC" id="uhf-wC-hIv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
