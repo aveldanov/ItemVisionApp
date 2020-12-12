@@ -55,7 +55,7 @@ class CameraViewController: UIViewController {
                 captureSession.addOutput(cameraOutput)
             }
         }catch{
-            
+            debugPrint(error.localizedDescription)
         }
         
         
