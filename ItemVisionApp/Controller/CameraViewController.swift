@@ -45,7 +45,9 @@ class CameraViewController: UIViewController {
         
         do{
             let input = try AVCaptureDeviceInput(device: backCamera!)
-            
+            if captureSession.canAddInput(input) == true{ //checking if input can be added
+                captureSession.addInput(input)
+            }
         }catch{
             
         }
