@@ -35,5 +35,12 @@ class CameraViewController: UIViewController {
         previewLayer.frame =  cameraView.bounds // set frame within cameraView
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
 }
 
