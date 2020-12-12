@@ -42,6 +42,13 @@ class CameraViewController: UIViewController {
         captureSession.sessionPreset = AVCaptureSession.Preset.hd1920x1080 //capture to full screen
         
         let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
+        
+        do{
+            let input = try AVCaptureDeviceInput(device: backCamera!)
+            
+        }catch{
+            
+        }
     }
     
 }
