@@ -48,9 +48,17 @@ class CameraViewController: UIViewController {
             if captureSession.canAddInput(input) == true{ //checking if input can be added
                 captureSession.addInput(input)
             }
+            
+            cameraOutput = AVCapturePhotoOutput()
+            
+            if captureSession.canAddOutput(cameraOutput) == true{
+                captureSession.addOutput(cameraOutput)
+            }
         }catch{
             
         }
+        
+        
     }
     
 }
