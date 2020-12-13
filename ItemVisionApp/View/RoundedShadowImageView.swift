@@ -10,10 +10,10 @@ import UIKit
 class RoundedShadowImageView: UIImageView {
 
     override func awakeFromNib() {
-        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowColor = UIColor.red.cgColor
         self.layer.shadowRadius = 15
         self.layer.shadowOpacity = 0.75
-        self.layer.cornerRadius = 15
+        self.layer.cornerRadius = self.frame.height/2
     }
 
 }
