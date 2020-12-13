@@ -9,11 +9,11 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController {
-
+    
     var captureSession: AVCaptureSession!
     var cameraOutput: AVCapturePhotoOutput!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    
+    var photoData: Data?
     
     
     @IBOutlet weak var cameraView: UIView!
@@ -28,7 +28,7 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -38,6 +38,12 @@ class CameraViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //Gest
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCameraView))
+        tap.numberOfTapsRequired = 1
+        
+        
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = AVCaptureSession.Preset.hd1920x1080 //capture to full screen
         
@@ -59,6 +65,10 @@ class CameraViewController: UIViewController {
                 previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
                 cameraView.layer.addSublayer(previewLayer)
                 
+                //gest
+                cameraView.addGestureRecognizer(tap)
+                
+                
                 captureSession.startRunning()
             }
         }catch{
@@ -67,7 +77,7 @@ class CameraViewController: UIViewController {
     }
     
     
-    func didTapCameraView(){
+    @objc func didTapCameraView(){
         let settings = AVCapturePhotoSettings()
         let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first // basic IOS photo. Can be HDR etc
         
@@ -84,7 +94,18 @@ class CameraViewController: UIViewController {
 
 
 extension CameraViewController: AVCapturePhotoCaptureDelegate{
-    
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if let error = error{
+            debugPrint(error)
+        }else{
+            
+            photoData = photo.fileDataRepresentation()
+            let image = UIImage(data: photoData!)
+            
+            captureImageView.image = image
+        }
+        
+    }
     
     
 }
