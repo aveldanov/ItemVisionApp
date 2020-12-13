@@ -71,8 +71,9 @@ class CameraViewController: UIViewController {
         let settings = AVCapturePhotoSettings()
         let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first // basic IOS photo. Can be HDR etc
         
-        let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String: previewPixelType]
+        let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String: previewPixelType, kCVPixelBufferWidthKey as String: 160, kCVPixelBufferHeightKey as String: 160]
         
+        settings.previewPhotoFormat = previewFormat
         
         
         
