@@ -64,6 +64,10 @@ class CameraViewController: UIViewController {
         }catch{
             debugPrint(error.localizedDescription)
         }
+    }
+    
+    
+    func didTapCameraView(){
         
         
     }
