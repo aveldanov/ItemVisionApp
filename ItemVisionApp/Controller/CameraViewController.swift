@@ -76,8 +76,16 @@ class CameraViewController: UIViewController {
         settings.previewPhotoFormat = previewFormat
         
         
+        cameraOutput.capturePhoto(with: settings, delegate: self)
         
     }
+    
+}
+
+
+extension CameraViewController: AVCapturePhotoCaptureDelegate{
+    
+    
     
 }
 
