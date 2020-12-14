@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21132D842586055D0035C6FE /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 21132D832586055D0035C6FE /* SqueezeNet.mlmodel */; };
 		2155D7B625832B9A00782A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2155D7B525832B9A00782A5A /* AppDelegate.swift */; };
 		2155D7B825832B9A00782A5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2155D7B725832B9A00782A5A /* SceneDelegate.swift */; };
 		2155D7BA25832B9A00782A5A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2155D7B925832B9A00782A5A /* CameraViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21132D832586055D0035C6FE /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
 		2155D7B225832B9A00782A5A /* ItemVisionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItemVisionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2155D7B525832B9A00782A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2155D7B725832B9A00782A5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		2155D7CF25832E2A00782A5A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				21132D832586055D0035C6FE /* SqueezeNet.mlmodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				2155D7BA25832B9A00782A5A /* CameraViewController.swift in Sources */,
 				2155D7B625832B9A00782A5A /* AppDelegate.swift in Sources */,
 				2155D7D52583567700782A5A /* RoundedShadowView.swift in Sources */,
+				21132D842586055D0035C6FE /* SqueezeNet.mlmodel in Sources */,
 				2155D7C025832B9A00782A5A /* ItemVisionApp.xcdatamodeld in Sources */,
 				2155D7B825832B9A00782A5A /* SceneDelegate.swift in Sources */,
 				2155D7D925835A8100782A5A /* RoundedShadowButton.swift in Sources */,

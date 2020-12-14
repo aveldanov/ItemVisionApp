@@ -7,6 +7,8 @@
 
 import UIKit
 import AVFoundation
+import CoreML
+import Vision
 
 class CameraViewController: UIViewController {
     
@@ -98,6 +100,17 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate{
         if let error = error{
             debugPrint(error)
         }else{
+            
+            // pass photoData to the CoreML model(SqueezNet)
+            
+            do{
+                let model = try VNCoreMLModel(for: SqueezeNet().model)
+                let request = VNCoreMLRequest(model: model, completionHandler: <#T##VNRequestCompletionHandler?##VNRequestCompletionHandler?##(VNRequest, Error?) -> Void#>)
+            }catch{
+                
+                
+            }
+            
             
             photoData = photo.fileDataRepresentation()
             let image = UIImage(data: photoData!)
