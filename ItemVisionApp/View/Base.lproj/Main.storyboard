@@ -91,7 +91,7 @@
                         <outlet property="captureImageView" destination="vNr-32-uhE" id="I93-TF-ErA"/>
                         <outlet property="confidenceLabel" destination="FXW-gM-dV1" id="Pa0-eJ-kij"/>
                         <outlet property="flashButton" destination="eYj-YK-yBe" id="gUN-bW-Otf"/>
-                        <outlet property="identificationLabel" destination="FXW-gM-dV1" id="Z57-0n-oc6"/>
+                        <outlet property="identificationLabel" destination="yLt-rw-UoS" id="ao5-gr-yfB"/>
                         <outlet property="roundedLabelView" destination="8bC-Xf-vdC" id="uhf-wC-hIv"/>
                     </connections>
                 </viewController>

@@ -23,12 +23,15 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var flashButton: RoundedShadowButton!
     @IBOutlet weak var identificationLabel: UILabel!
     @IBOutlet weak var confidenceLabel: UILabel!
-    @IBOutlet var roundedLabelView: RoundedShadowView!
+    @IBOutlet weak var roundedLabelView: RoundedShadowView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        identificationLabel.text = "YOP"
+//        confidenceLabel.text = "CONF"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -98,11 +101,14 @@ class CameraViewController: UIViewController {
             return
         }
 //        print("RESULTS",results)
+        identificationLabel.text = "Please try again"
+        confidenceLabel.text = "YO"
 
         for classification in results{
             //            if confidence is lower than 50% not result then
-            print("IDEN: ",classification.identifier)
-
+            print("IDEN: ",classification.identifier, classification.confidence)
+            identificationLabel.text = "Please try again"
+            confidenceLabel.text = "YO"
             if classification.confidence < 0.5{
                 identificationLabel.text = "Please try again, not sure what is that"
                 confidenceLabel.text = ""
@@ -110,6 +116,7 @@ class CameraViewController: UIViewController {
             }else{
                 identificationLabel.text = classification.identifier
                 confidenceLabel.text = "CONFIDENCE: \(Int(classification.confidence*100))%"
+                break
             }
             
             
@@ -141,7 +148,6 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate{
             }
             
             
-            photoData = photo.fileDataRepresentation()
             let image = UIImage(data: photoData!)
             
             captureImageView.image = image
