@@ -68,6 +68,9 @@
                                 <state key="normal" title="FLASH OFF">
                                     <color key="titleColor" systemColor="systemGreenColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="flashButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wtF-FM-YMT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

@@ -93,6 +93,11 @@ class CameraViewController: UIViewController {
         // tiny thumbnail in the right
         settings.previewPhotoFormat = settings.embeddedThumbnailPhotoFormat
         
+        if flashControlState == .off{
+            settings.flashMode = .off
+        }else{
+            settings.flashMode = .on
+        }
         
         cameraOutput.capturePhoto(with: settings, delegate: self)
         
@@ -126,6 +131,15 @@ class CameraViewController: UIViewController {
         }
         
     }
+    
+    
+    
+    @IBAction func flashButtonTapped(_ sender: UIButton) {
+        
+        
+        
+    }
+    
     
 }
 
