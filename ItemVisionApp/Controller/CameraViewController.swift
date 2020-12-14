@@ -24,6 +24,9 @@ class CameraViewController: UIViewController {
     
     var flashControlState: FlashState = .off
     
+    var speachSythesizer:  AVSpeechSynthesizer()
+    
+    
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var captureImageView: RoundedShadowImageView!
     @IBOutlet weak var flashButton: RoundedShadowButton!
@@ -135,7 +138,14 @@ class CameraViewController: UIViewController {
     
     
     @IBAction func flashButtonTapped(_ sender: UIButton) {
-        
+        switch flashControlState {
+        case .off:
+            flashButton.setTitle("FLASH ON", for: .normal)
+            flashControlState = .on
+        case .on:
+            flashButton.setTitle("FLASH OFF", for: .normal)
+            flashControlState = .off
+        }
         
         
     }
