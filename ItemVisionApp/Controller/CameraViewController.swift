@@ -81,7 +81,7 @@ class CameraViewController: UIViewController {
     
     @objc func didTapCameraView(){
         let settings = AVCapturePhotoSettings()
-    
+        
         
         
         // tiny thumbnail in the right
@@ -97,9 +97,20 @@ class CameraViewController: UIViewController {
         guard let results = request.results as? [VNClassificationObservation] else {
             return
         }
-        
+//        print("RESULTS",results)
+
         for classification in results{
-            
+            //            if confidence is lower than 50% not result then
+            print("IDEN: ",classification.identifier)
+
+            if classification.confidence < 0.5{
+                identificationLabel.text = "Please try again, not sure what is that"
+                confidenceLabel.text = ""
+                break
+            }else{
+                identificationLabel.text = classification.identifier
+                confidenceLabel.text = "CONFIDENCE: \(Int(classification.confidence*100))%"
+            }
             
             
         }
@@ -116,7 +127,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate{
         }else{
             
             // pass photoData to the CoreML model(SqueezNet)
-            
+            photoData = photo.fileDataRepresentation()
             do{
                 let model = try VNCoreMLModel(for: SqueezeNet().model)
                 let request = VNCoreMLRequest(model: model, completionHandler: resultsMethod(request:error:))
