@@ -188,7 +188,9 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate{
 
 
 extension CameraViewController: AVSpeechSynthesizerDelegate{
-    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        // code to finish utterance
+    }
     
     
 }
