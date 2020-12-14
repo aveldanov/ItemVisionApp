@@ -44,6 +44,7 @@ class CameraViewController: UIViewController {
         super.viewDidAppear(animated)
         
         previewLayer.frame =  cameraView.bounds // set frame within cameraView
+        speachSythesizer.delegate = self
     }
     
     
@@ -181,6 +182,13 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate{
         }
         
     }
+    
+    
+}
+
+
+extension CameraViewController: AVSpeechSynthesizerDelegate{
+    
     
     
 }
