@@ -92,6 +92,20 @@ class CameraViewController: UIViewController {
         
     }
     
+    func resultsMethod(request: VNRequest, error: Error?){
+        //handle chaning the label text
+        guard let results = request.results as? [VNClassificationObservation] else {
+            return
+        }
+        
+        for classification in results{
+            
+            
+            
+        }
+        
+    }
+    
 }
 
 
@@ -105,9 +119,13 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate{
             
             do{
                 let model = try VNCoreMLModel(for: SqueezeNet().model)
-                let request = VNCoreMLRequest(model: model, completionHandler: <#T##VNRequestCompletionHandler?##VNRequestCompletionHandler?##(VNRequest, Error?) -> Void#>)
-            }catch{
+                let request = VNCoreMLRequest(model: model, completionHandler: resultsMethod(request:error:))
+                let handler = VNImageRequestHandler(data: photoData!)
+                try handler.perform([request])
                 
+                
+            }catch{
+                debugPrint(error)
                 
             }
             
