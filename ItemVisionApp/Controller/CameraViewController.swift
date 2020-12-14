@@ -10,6 +10,11 @@ import AVFoundation
 import CoreML
 import Vision
 
+enum FlashState {
+    case off
+    case on
+}
+
 class CameraViewController: UIViewController {
     
     var captureSession: AVCaptureSession!
@@ -17,6 +22,7 @@ class CameraViewController: UIViewController {
     var previewLayer: AVCaptureVideoPreviewLayer!
     var photoData: Data?
     
+    var flashControlState: FlashState = .off
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var captureImageView: RoundedShadowImageView!
@@ -29,9 +35,6 @@ class CameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        identificationLabel.text = "YOP"
-//        confidenceLabel.text = "CONF"
     }
     
     override func viewDidAppear(_ animated: Bool) {
