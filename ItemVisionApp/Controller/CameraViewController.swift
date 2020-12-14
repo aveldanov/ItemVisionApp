@@ -24,7 +24,7 @@ class CameraViewController: UIViewController {
     
     var flashControlState: FlashState = .off
     
-    var speachSythesizer:  AVSpeechSynthesizer()
+    var speachSythesizer =  AVSpeechSynthesizer()
     
     
     @IBOutlet weak var cameraView: UIView!
