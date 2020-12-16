@@ -26,7 +26,6 @@ class CameraViewController: UIViewController {
     
     var speachSythesizer =  AVSpeechSynthesizer()
     
-    
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var captureImageView: RoundedShadowImageView!
     @IBOutlet weak var flashButton: RoundedShadowButton!
