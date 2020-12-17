@@ -33,6 +33,7 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var confidenceLabel: UILabel!
     @IBOutlet weak var roundedLabelView: RoundedShadowView!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
@@ -44,6 +45,7 @@ class CameraViewController: UIViewController {
         
         previewLayer.frame =  cameraView.bounds // set frame within cameraView
         speechSythesizer.delegate = self
+        spinner.isHidden = true
     }
     
     
@@ -89,10 +91,11 @@ class CameraViewController: UIViewController {
     
     
     @objc func didTapCameraView(){
+        cameraView.isUserInteractionEnabled = false // so can't take another pic
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
         let settings = AVCapturePhotoSettings()
-        
-        
-        
         // tiny thumbnail in the right
         settings.previewPhotoFormat = settings.embeddedThumbnailPhotoFormat
         
@@ -199,7 +202,9 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate{
 
 extension CameraViewController: AVSpeechSynthesizerDelegate{
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        // code to finish utterance
+        cameraView.isUserInteractionEnabled = true
+        spinner.isHidden = true
+        spinner.stopAnimating()
     }
     
     

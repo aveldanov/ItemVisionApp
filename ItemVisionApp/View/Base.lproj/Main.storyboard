@@ -72,7 +72,7 @@
                                     <action selector="flashButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wtF-FM-YMT"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="maa-oG-Sz0">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="maa-oG-Sz0">
                                 <rect key="frame" x="329" y="757" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -101,6 +101,7 @@
                         <outlet property="flashButton" destination="eYj-YK-yBe" id="gUN-bW-Otf"/>
                         <outlet property="identificationLabel" destination="yLt-rw-UoS" id="ao5-gr-yfB"/>
                         <outlet property="roundedLabelView" destination="8bC-Xf-vdC" id="uhf-wC-hIv"/>
+                        <outlet property="spinner" destination="maa-oG-Sz0" id="g6v-Vn-kYB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
