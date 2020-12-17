@@ -24,7 +24,7 @@ class CameraViewController: UIViewController {
     
     var flashControlState: FlashState = .off
     
-    var speachSythesizer =  AVSpeechSynthesizer()
+    var speechSythesizer =  AVSpeechSynthesizer()
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var captureImageView: RoundedShadowImageView!
@@ -43,7 +43,7 @@ class CameraViewController: UIViewController {
         super.viewDidAppear(animated)
         
         previewLayer.frame =  cameraView.bounds // set frame within cameraView
-        speachSythesizer.delegate = self
+        speechSythesizer.delegate = self
     }
     
     
@@ -117,21 +117,34 @@ class CameraViewController: UIViewController {
 
         for classification in results{
             //            if confidence is lower than 50% not result then
-            print("IDEN: ",classification.identifier, classification.confidence)
-            identificationLabel.text = "Please try again"
+//            print("IDEN: ",classification.identifier, classification.confidence)
+            let unknownObjectMessage = "Please try again"
+            identificationLabel.text = unknownObjectMessage
+            synthesizeSpeech(fromString: unknownObjectMessage)
             confidenceLabel.text = "YO"
             if classification.confidence < 0.5{
                 identificationLabel.text = "Please try again, not sure what is that"
                 confidenceLabel.text = ""
                 break
             }else{
-                identificationLabel.text = classification.identifier
-                confidenceLabel.text = "CONFIDENCE: \(Int(classification.confidence*100))%"
+                let identificationResult = classification.identifier
+                let confidenceResult = Int(classification.confidence*100)
+                identificationLabel.text = identificationResult
+                confidenceLabel.text = "CONFIDENCE: \(confidenceResult)%"
+                let completeSenteceResult = "This looks like a \(identificationResult) and I'm \(confidenceResult) percent confident."
+                synthesizeSpeech(fromString: completeSenteceResult)
                 break
             }
             
             
         }
+        
+    }
+    
+    
+    func synthesizeSpeech(fromString string: String){
+        let speechUtterance = AVSpeechUtterance(string: string)
+        speechSythesizer.speak(speechUtterance)
         
     }
     
