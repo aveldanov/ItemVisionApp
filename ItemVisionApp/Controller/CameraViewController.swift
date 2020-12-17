@@ -116,14 +116,12 @@ class CameraViewController: UIViewController {
         confidenceLabel.text = "YO"
 
         for classification in results{
-            //            if confidence is lower than 50% not result then
-//            print("IDEN: ",classification.identifier, classification.confidence)
-            let unknownObjectMessage = "Please try again"
-            identificationLabel.text = unknownObjectMessage
-            synthesizeSpeech(fromString: unknownObjectMessage)
+
             confidenceLabel.text = "YO"
             if classification.confidence < 0.5{
-                identificationLabel.text = "Please try again, not sure what is that"
+                let unknownObjectMessage = "Please try again, not sure what is that"
+                identificationLabel.text = unknownObjectMessage
+                synthesizeSpeech(fromString: unknownObjectMessage)
                 confidenceLabel.text = ""
                 break
             }else{
