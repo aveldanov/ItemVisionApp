@@ -129,7 +129,7 @@ class CameraViewController: UIViewController {
                 let confidenceResult = Int(classification.confidence*100)
                 identificationLabel.text = identificationResult
                 confidenceLabel.text = "CONFIDENCE: \(confidenceResult)%"
-                let completeSenteceResult = "This looks like a \(identificationResult) and I'm \(confidenceResult) percent confident."
+                let completeSenteceResult = "This looks like a \(identificationResult), and I'm \(confidenceResult) percent confident."
                 synthesizeSpeech(fromString: completeSenteceResult)
                 break
             }
